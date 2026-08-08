@@ -76,36 +76,36 @@ const MEMORY_WALL_COLUMNS = [
     {
       type: 'photo',
       photo: PRESET_PHOTOS[5],
-      note: 'Card 1: Roller coaster screaming fun at the theme park! Best day ever!',
-      sender: 'From Leo & Sam',
+      note: 'Happy Birthday Nash, your beautiful the way you are dont let others say otherwise love u 🫶',
+      sender: 'From Enzo',
       rotation: 3
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[6],
-      note: 'Card 2: The giant 5-scoop ice cream sundae victory challenge!',
-      sender: 'From Uncle Dave',
+      note: 'hbd nash! i want you to know that you’re such a good friend to us, sister to your siblings, and daughter to your parents.',
+      sender: 'From Samantha',
       rotation: -4
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[7],
-      note: 'Card 3: Space astronaut costume day! Ready for moon launch at 10!',
-      sender: 'From Mom',
+      note: 'happy birthday nash lahams na lahams kita',
+      sender: 'From Rhianne',
       rotation: 2
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[8],
-      note: 'Card 4: Unwrapping the giant birthday surprise present! Hope you love it!',
-      sender: 'From Dad',
+      note: 'Happiest birthday my soulmate, thank you for always showing up, grateful for you always and forever! Ilysm! 🫶🏻',
+      sender: 'Angel Baby',
       rotation: -3
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[9],
-      note: 'Card 5: Late night pepperoni pizza feast celebration with the whole crew!',
-      sender: 'From Mom & Dad',
+      note: 'Happy Birthday ',
+      sender: 'From Eij',
       rotation: 4
     }
   ],
@@ -114,36 +114,36 @@ const MEMORY_WALL_COLUMNS = [
     {
       type: 'photo',
       photo: PRESET_PHOTOS[10],
-      note: 'Card 1: Stargazing campsite night under the Milky Way! Reach for the stars!',
-      sender: 'From Uncle Mark',
+      note: 'happy birthday to my yolo friend! so grateful to have you in my life, never expected us to get this close but i’m glad na we did 💋 enjoy nash, u deserve all the happiness love u!',
+      sender: 'From Zaira',
       rotation: -3
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[11],
-      note: 'Card 2: Beach wave jumping competition into the ocean! 10/10 jump form!',
-      sender: 'From Cousin Sam',
+      note: 'Happy birthday, prinsesa ng wilab! Enjoy your day and study hard tapos ingat pirmi sa dalan.',
+      sender: 'From pinaka pogi sa wilab, gean',
       rotation: 4
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[12],
-      note: 'Card 3: Party lights, music jam, and dancing till sunset! Happy 10th!',
-      sender: 'From Coach Mike',
+      note: 'Happy birthday Nashleah, I wish you the best of your day and i hope that youll have a great day today.',
+      sender: 'From Osama Bin Laden Joseph',
       rotation: -2
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[13],
-      note: 'Card 4: Sparkler fireworks lighting up the night for your special day!',
-      sender: 'From Grandma & Grandpa',
+      note: 'Happybirthday nash unta di na mawala imong pagka jejemon, more bdays to come😊🥶🥳🤩🤑',
+      sender: 'From jether',
       rotation: 3
     },
     {
       type: 'photo',
       photo: PRESET_PHOTOS[14],
-      note: 'Card 5: Hitting the all-time high score at the retro arcade! Gamer champion!',
-      sender: 'From Sam',
+      note: 'Happy birthday, Nash bayolet! Wishing you good health, happiness, and success in everything you do. ',
+      sender: 'From Beng',
       rotation: -4
     }
   ]
@@ -229,7 +229,6 @@ function createCardElement(item, colIdx, itemIdx) {
   return card;
 }
 
-
 let confettiParticles = [];
 let confettiCanvas, ctx;
 
@@ -296,36 +295,35 @@ function updateAndDrawConfetti() {
   requestAnimationFrame(updateAndDrawConfetti);
 }
 
+/* ==========================================================================
+   3. BOTTOM DOCK CONTROLS & MOTION TOGGLE
+   ========================================================================== */
+function initDockControls() {
+  const toggleMotionBtn = document.getElementById('toggleMotionBtn');
+  const motionIcon = document.getElementById('motionIcon');
+  const motionLabel = document.getElementById('motionLabel');
+  const celebrateBtn = document.getElementById('celebrateBtn');
+  const angleToggleBtn = document.getElementById('angleToggleBtn');
+  const stage = document.getElementById('collageWallStage');
 
-function playCelebrationChime() {
-  try {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) audioCtx = new AudioContext();
-    }
-    if (!audioCtx) return;
-
-    const chord = [523.25, 659.25, 783.99, 1046.50];
-    chord.forEach((freq, idx) => {
-      const now = audioCtx.currentTime + idx * 0.08;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, now);
-
-      gain.gain.setValueAtTime(0.001, now);
-      gain.gain.exponentialRampToValueAtTime(0.12, now + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(now);
-      osc.stop(now + 0.85);
-    });
-  } catch (err) {}
+  
 }
+
+
+function initAudioSynthesizer() {
+  const toggleSoundBtn = document.getElementById('toggleSoundBtn');
+  
+
+  if (toggleSoundBtn) {
+    toggleSoundBtn.addEventListener('click', () => {
+      isAudioPlaying = !isAudioPlaying;
+
+     
+    });
+  }
+
+}
+
 
 function initLightboxModal() {
   const cardLightbox = document.getElementById('cardLightbox');
@@ -364,6 +362,14 @@ function openCardInLightbox(item) {
   launchConfettiBurst(40);
 }
 
+function initAddCardModal() {
+  const addCardBtn = document.getElementById('addCardBtn');
+  const addCardModal = document.getElementById('addCardModal');
+  const closeAddModalBtn = document.getElementById('closeAddModalBtn');
+  const submitNewCardBtn = document.getElementById('submitNewCardBtn');
+
+
+}
 
 
 function showToast(msg) {

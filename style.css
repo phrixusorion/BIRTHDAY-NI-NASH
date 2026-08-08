@@ -1,6 +1,3 @@
-/* ==========================================================================
-   10TH BIRTHDAY DIGITAL MEMORY WALL - CINEMATIC CONTINUOUS SCROLL COLLAGE
-   ========================================================================== */
 
 :root {
   --bg-dark-navy: #090916;
@@ -34,7 +31,6 @@ body, html {
   user-select: none;
 }
 
-/* Interactive Confetti Canvas Layer */
 .confetti-canvas {
   position: fixed;
   inset: 0;
@@ -44,7 +40,6 @@ body, html {
   z-index: 500;
 }
 
-/* Atmospheric Lighting & Vignette Overlay */
 .cinematic-lighting-vignette {
   position: fixed;
   inset: 0;
@@ -54,7 +49,6 @@ body, html {
   box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.9);
 }
 
-/* TOP FLOATING BANNER & CONTROLS */
 .top-floating-banner {
   position: fixed;
   top: 18px;
@@ -87,7 +81,6 @@ body, html {
   white-space: nowrap;
 }
 
-/* Pause Button Beside Title */
 .header-pause-btn {
   background: linear-gradient(135deg, #f1c40f 0%, #ffa502 100%);
   color: #0d0724;
@@ -110,7 +103,6 @@ body, html {
   box-shadow: 0 6px 18px rgba(241, 196, 15, 0.6);
 }
 
-/* Other Compact Action Buttons in Header */
 .header-action-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -144,7 +136,6 @@ body, html {
   100% { transform: scale(1.2) rotate(15deg); opacity: 1; }
 }
 
-/* MAIN COLLAGE VIEWPORT */
 .collage-viewport {
   width: 100vw;
   height: 100vh;
@@ -156,7 +147,6 @@ body, html {
   justify-content: center;
 }
 
-/* TILTED 3D COLLAGE WALL STAGE (3 COLUMNS FILLING FULL CANVAS) */
 .collage-wall-stage {
   display: flex;
   gap: 3vw;
@@ -173,7 +163,6 @@ body, html {
   will-change: transform;
 }
 
-/* Straight Perspective Mode Toggle Class */
 .collage-wall-stage.straight-view {
   transform: rotate(0deg) scale(1.02);
   left: -10vw;
@@ -181,7 +170,6 @@ body, html {
   top: -50%;
 }
 
-/* VERTICAL TRACK COLUMNS & CONTINUOUS ESCALATOR SCROLLING */
 .scroll-track {
   display: flex;
   flex-direction: column;
@@ -196,21 +184,18 @@ body, html {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-bottom: 24px; /* Gap after Card 5 before Card 1 of next sequence is exactly 24px */
+  padding-bottom: 24px; 
   will-change: transform;
 }
 
-/* Track Pause Class */
 .scroll-track.paused .track-sequence {
   animation-play-state: paused !important;
 }
 
-/* Staggered Column Animation Speeds & Alternate Directions for 3 Infinite Track Lines */
 .scroll-track-0 .track-sequence { animation: scrollDownSequence 22s linear infinite; }
 .scroll-track-1 .track-sequence { animation: scrollUpSequence 19s linear infinite; }
 .scroll-track-2 .track-sequence { animation: scrollDownSequence 25s linear infinite; }
 
-/* ZERO-CUT PERFECT ESCALATOR KEYFRAMES */
 @keyframes scrollDownSequence {
   0% {
     transform: translateY(-100%);
@@ -229,7 +214,6 @@ body, html {
   }
 }
 
-/* INDIVIDUAL MEMORY CARD STYLES */
 .memory-card {
   background: var(--card-bg);
   color: var(--card-text);
@@ -251,7 +235,6 @@ body, html {
   z-index: 80;
 }
 
-/* PHOTO MEMORY CARD */
 .card-photo-wrapper {
   position: relative;
   width: 100%;
@@ -275,7 +258,6 @@ body, html {
   transform: scale(1.05);
 }
 
-/* VIDEO MEMORY CARD THUMBNAIL */
 .card-video-wrapper {
   position: relative;
   width: 100%;
@@ -327,7 +309,6 @@ body, html {
   border-radius: 4px;
 }
 
-/* HANDWRITTEN CARD TEXT & NOTES */
 .card-note-text {
   font-family: 'Caveat', 'Kalam', cursive;
   font-size: 1.25rem;
@@ -346,7 +327,6 @@ body, html {
   display: block;
 }
 
-/* SPECIAL BIG HEADLINE CARDS */
 .headline-card {
   border-radius: 18px;
   padding: 22px 18px;
@@ -392,7 +372,6 @@ body, html {
   opacity: 0.95;
 }
 
-/* STICKERS & DOODLES ON HEADLINE CARDS */
 .card-sticker-tag {
   display: inline-block;
   background: #ffffff;
@@ -406,7 +385,6 @@ body, html {
   transform: rotate(-4deg);
 }
 
-/* BOTTOM FLOATING DOCK BAR */
 .bottom-dock-bar {
   position: fixed;
   bottom: 24px;
@@ -464,7 +442,6 @@ body, html {
   color: #ffffff;
 }
 
-/* 10-SECOND SEAMLESS TIMER TRACK AT BOTTOM */
 .seamless-timer-track {
   position: fixed;
   bottom: 0;
@@ -488,7 +465,6 @@ body, html {
   100% { width: 100%; }
 }
 
-/* LIGHTBOX MODAL FOR DETAILED CARD INSPECTION */
 .card-lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -547,7 +523,6 @@ body, html {
   transform: scale(1.05);
 }
 
-/* MODAL FOR ADDING NEW MEMORY CARD */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -683,7 +658,6 @@ body, html {
   box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
 }
 
-/* TOAST NOTIFICATION STYLES */
 .toast-container {
   position: fixed;
   bottom: 24px;
@@ -711,7 +685,6 @@ body, html {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* MEDIA QUERIES FOR RESPONSIVE CANVAS */
 @media (max-width: 768px) {
   .collage-wall-stage {
     gap: 16px;
